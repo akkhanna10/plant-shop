@@ -1,17 +1,17 @@
 # Use an official Node.js runtime as a parent image
-FROM node:latest
+FROM node:alpine
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR '/app'
 
 # Copy package.json and package-lock.json to /app
-COPY package*.json /app/
+COPY package.json
 
 # Install dependencies
 RUN npm install
 
 # Copy the current directory contents to /app
-COPY . /app
+COPY . .
 
 # Expose port 3000 for the React app
 EXPOSE 3000
